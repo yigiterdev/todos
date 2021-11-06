@@ -1,3 +1,5 @@
+import './_page.scss';
+
 import React from 'react';
 import classNames from 'classnames';
 
