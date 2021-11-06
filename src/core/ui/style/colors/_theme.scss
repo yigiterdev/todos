@@ -1,0 +1,31 @@
+.light-theme {
+  --background: var(--white);
+
+  // Text
+  --text-main: var(--gray-900);
+
+  // Primary Button
+  --button-primary-bg: var(--orange-400);
+  --button-primary-hover-bg: var(--orange-500);
+  --button-primary-disabled-bg: var(--gray-100);
+  --button-primary-text: var(--white);
+  --button-primary-hover-text: var(--white);
+
+  // Helpers
+
+  --purple: var(--purple-400);
+  --purple-darker: var(--purple-500);
+  --turquoise: var(--turquoise-400);
+  --turquoise-darker: var(--turquoise-500);
+  --red-darker: var(--red-500);
+  --neutral-darker: var(--gray-200);
+  --neutral: var(--gray-100);
+  --neutral-lighter: var(--gray-50);
+}
+
+.dark-theme {
+  --background: var(--black);
+
+  // Text
+  --text-main: var(--white);
+}
