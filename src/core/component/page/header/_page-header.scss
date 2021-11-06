@@ -1,0 +1,18 @@
+.page-header {
+  display: flex;
+  justify-content: flex-end;
+
+  padding: 15px 20px;
+
+  background: var(--header-background);
+}
+
+.page-header__theme-select {
+  display: grid;
+  align-items: center;
+  grid-template-columns: max-content 60px;
+  gap: 10px;
+
+  color: var(--background);
+  background: var(--header-background);
+}
