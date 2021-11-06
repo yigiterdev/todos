@@ -1,13 +1,14 @@
 .light-theme {
   --background: var(--white);
-  --header-background: var(--orange-400);
+  --header-background: transparent;
+  --header-border-color: var(--gray-100);
 
   // Text
   --text-main: var(--gray-900);
 
   // Primary Button
-  --button-primary-bg: var(--orange-400);
-  --button-primary-hover-bg: var(--orange-500);
+  --button-primary-bg: var(--turquoise-500);
+  --button-primary-hover-bg: var(--turquoise-400);
   --button-primary-disabled-bg: var(--gray-100);
   --button-primary-text: var(--white);
   --button-primary-hover-text: var(--white);
@@ -16,8 +17,8 @@
 
   --purple: var(--purple-400);
   --purple-darker: var(--purple-500);
-  --turquoise: var(--turquoise-400);
-  --turquoise-darker: var(--turquoise-500);
+  --orange: var(--orange-400);
+  --orange-darker: var(--orange-500);
   --red-darker: var(--red-500);
   --neutral-darker: var(--gray-200);
   --neutral: var(--gray-100);
@@ -27,7 +28,26 @@
 .dark-theme {
   --background: var(--gray-900);
   --header-background: var(--black);
+  --header-border-color: var(--black);
 
   // Text
   --text-main: var(--white);
+
+  // Primary Button
+  --button-primary-bg: var(--turquoise-500);
+  --button-primary-hover-bg: var(--turquoise-400);
+  --button-primary-disabled-bg: var(--gray-100);
+  --button-primary-text: var(--white);
+  --button-primary-hover-text: var(--white);
+
+  // Helpers
+
+  --purple: var(--purple-400);
+  --purple-darker: var(--purple-500);
+  --orange: var(--orange-400);
+  --orange-darker: var(--orange-500);
+  --red-darker: var(--red-500);
+  --neutral-darker: var(--gray-200);
+  --neutral: var(--gray-100);
+  --neutral-lighter: var(--gray-50);
 }

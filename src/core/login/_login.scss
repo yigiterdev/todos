@@ -1,0 +1,21 @@
+@import '../ui/style/media-queries';
+
+.login-page__form {
+  height: 80vh;
+}
+
+.login-page__form__input {
+  width: 400px;
+  margin-bottom: 20px;
+}
+
+.login-page__form__button {
+  margin: auto;
+}
+
+@include for-small-screens {
+  .login-page__form__input {
+    width: 300px;
+    margin-bottom: 20px;
+  }
+}

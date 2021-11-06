@@ -1,0 +1,14 @@
+.button {
+  --button-width: unset;
+  --button-height: unset;
+
+  position: relative;
+
+  border-radius: 0;
+
+  transition: all 100ms ease;
+}
+
+.button--is-inactive {
+  opacity: 1;
+}
