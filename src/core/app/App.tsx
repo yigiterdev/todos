@@ -1,12 +1,7 @@
-import "styles/global.scss";
-import "./i18n";
-
-import Home from "pages";
-
 function App(): JSX.Element {
   return (
     <div className="App">
-      <Home />
+      <h1>Hi</h1>
     </div>
   );
 }

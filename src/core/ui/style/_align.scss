@@ -1,0 +1,31 @@
+is-centered {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.is-vertically-centered {
+  display: flex;
+  align-items: center;
+}
+
+.has-space-between {
+  display: flex;
+  justify-content: space-between;
+}
+
+.is-aligned-right {
+  justify-self: right;
+
+  text-align: right;
+}
+
+.is-flex-column {
+  flex-direction: column;
+}
+
+.auto-grid-columns {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 12px;
+}
