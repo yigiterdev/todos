@@ -20,7 +20,6 @@ export interface Todos {
 }
 
 export interface User {
-  id: string;
   name: string;
   surname: string;
 }

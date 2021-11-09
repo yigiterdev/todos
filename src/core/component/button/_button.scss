@@ -1,0 +1,40 @@
+// Button Sizes
+.button--regular {
+  --button-height: 44px;
+
+  padding: 10px 20px;
+}
+
+.button--medium {
+  --button-height: 48px;
+
+  padding: 12px 20px;
+}
+
+.button--large {
+  --button-height: 52px;
+
+  padding: 14px 24px;
+}
+
+// Button Types
+
+.button--primary {
+  --button-bg: var(--button-primary-bg);
+  --button-color: var(--button-primary-text);
+
+  &:hover,
+  &:focus {
+    --button-bg: var(--button-primary-hover-bg);
+    --button-color: var(--button-primary-hover-text);
+  }
+
+  &:disabled {
+    --button-bg: var(--button-primary-disabled-bg);
+  }
+
+  &.button--is-pending {
+    --button-bg: var(--button-primary-bg);
+    --button-color: var(--button-bg);
+  }
+}
