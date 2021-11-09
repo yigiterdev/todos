@@ -13,8 +13,7 @@ module.exports = {
     "@hipo/eslint-config-base",
     "@hipo/eslint-config-react",
     "@hipo/eslint-config-typescript",
-    "plugin:jsx-a11y/recommended",
-    "prettier"
+    "plugin:jsx-a11y/recommended"
   ],
   parserOptions: {
     project: path.resolve(__dirname, "./tsconfig.json"),
