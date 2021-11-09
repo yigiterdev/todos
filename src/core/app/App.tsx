@@ -1,8 +1,8 @@
-import Login from "core/login/Login";
+import Login from "../login/Login";
 
 function App() {
   return (
-    <div className="App">
+    <div className={"App"}>
       <Login />
     </div>
   );

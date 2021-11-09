@@ -1,32 +1,18 @@
-import './_page.scss';
+import "./_page.scss";
 
-import React from 'react';
-import classNames from 'classnames';
+import React from "react";
+import classNames from "classnames";
 
-import PageHeader from './header/PageHeader';
-
-export interface PageMetaAttributes {
-  title?: string;
-  ogTitle?: string;
-  ogDescription?: string;
-  ogURL?: string;
-}
+import PageHeader from "./header/PageHeader";
 
 interface PageProps {
   children: React.ReactNode;
   customClassName?: string;
-  shouldDisplayFooter?: boolean;
-  metaAttributes?: PageMetaAttributes | undefined;
 }
 
-function Page({
-  children,
-  customClassName,
-  shouldDisplayFooter = true,
-  metaAttributes,
-}: PageProps) {
+function Page({children, customClassName}: PageProps) {
   return (
-    <div className={classNames('page', customClassName)}>
+    <div className={classNames("page", customClassName)}>
       <PageHeader />
 
       {children}

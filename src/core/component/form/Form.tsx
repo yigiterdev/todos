@@ -1,5 +1,5 @@
-import React, { FormEvent } from 'react';
-import classNames from 'classnames';
+import React, {FormEvent} from "react";
+import classNames from "classnames";
 
 interface FormProps {
   children: React.ReactNode;
@@ -8,12 +8,9 @@ interface FormProps {
   customClassName?: string;
 }
 
-function Form({ children, customClassName, isDisabled, onSubmit }: FormProps) {
+function Form({children, customClassName, isDisabled, onSubmit}: FormProps) {
   return (
-    <form
-      className={classNames('form', customClassName)}
-      onSubmit={handleSubmit}
-    >
+    <form className={classNames("form", customClassName)} onSubmit={handleSubmit}>
       {children}
     </form>
   );

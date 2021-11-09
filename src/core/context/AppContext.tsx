@@ -1,29 +1,28 @@
-import webStorage from 'core/storage/webStorage';
 import React, {
   createContext,
   Dispatch,
   useContext,
   useLayoutEffect,
-  useReducer,
-} from 'react';
+  useReducer
+} from "react";
 
-import { initialAppState } from './appState';
-import { appStateReducer, AppStateReducerAction } from './appStateReducer';
+import {initialAppState} from "./appState";
+import {appStateReducer, AppStateReducerAction} from "./appStateReducer";
+import webStorage from "../storage/webStorage";
 
 const AppContext = createContext({
   appState: initialAppState,
-  dispatchAppStateReducerAction: (() =>
-    undefined) as Dispatch<AppStateReducerAction>,
+  dispatchAppStateReducerAction: (() => undefined) as Dispatch<AppStateReducerAction>
 });
 
-function AppContextProvider({ children }: { children: React.ReactNode }) {
+function AppContextProvider({children}: {children: React.ReactNode}) {
   const [appState, dispatchAppStateReducerAction] = useReducer(
     appStateReducer,
     initialAppState
   );
 
   useLayoutEffect(() => {
-    webStorage.local.setItem('theme', appState.theme);
+    webStorage.local.setItem("theme", appState.theme);
 
     document.documentElement.classList.add(appState.theme);
 
@@ -36,7 +35,7 @@ function AppContextProvider({ children }: { children: React.ReactNode }) {
     <AppContext.Provider
       value={{
         appState,
-        dispatchAppStateReducerAction,
+        dispatchAppStateReducerAction
       }}
     >
       {children}
@@ -48,6 +47,6 @@ function useAppContext() {
   return useContext(AppContext);
 }
 
-export { AppContextProvider, AppContext, useAppContext };
+export {AppContextProvider, AppContext, useAppContext};
 
-export const Consumer = AppContext.Consumer;
+export const {Consumer} = AppContext;

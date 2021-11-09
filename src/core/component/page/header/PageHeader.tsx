@@ -1,30 +1,30 @@
-import './_page-header.scss';
+import "./_page-header.scss";
 
-import { Switch } from '@hipo/react-ui-toolkit';
-import { MdModeNight } from 'react-icons/md';
-import { BsSunFill } from 'react-icons/bs';
+import {Switch} from "@hipo/react-ui-toolkit";
+import {MdModeNight} from "react-icons/md";
+import {BsSunFill} from "react-icons/bs";
 
-import { useAppContext } from 'core/context/AppContext';
+import {useAppContext} from "../../../context/AppContext";
 
 function PageHeader() {
   const {
-    appState: { theme },
-    dispatchAppStateReducerAction,
+    appState: {theme},
+    dispatchAppStateReducerAction
   } = useAppContext();
 
   return (
-    <header className={'page-header'}>
-      <div className={'page-header__theme-select'}>
-        <Switch isToggledOn={theme === 'dark-theme'} onToggle={handleSwitch} />
+    <header className={"page-header"}>
+      <div className={"page-header__theme-select"}>
+        <Switch isToggledOn={theme === "dark-theme"} onToggle={handleSwitch} />
 
-        {theme === 'dark-theme' ? <BsSunFill /> : <MdModeNight />}
+        {theme === "dark-theme" ? <BsSunFill /> : <MdModeNight />}
       </div>
     </header>
   );
 
   function handleSwitch() {
     dispatchAppStateReducerAction({
-      type: 'CHANGE_THEME',
+      type: "CHANGE_THEME"
     });
   }
 }

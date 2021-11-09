@@ -1,1 +1,1 @@
-type WebStorageStoredValue = null | string | boolean | { [x: string]: any };
+type WebStorageStoredValue = null | string | boolean | {[x: string]: any};

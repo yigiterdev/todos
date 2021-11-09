@@ -2,13 +2,13 @@ import logoSrc from "../ui/img/todos.png";
 
 import "./_login.scss";
 
+import {useState} from "react";
 import {Input} from "@hipo/react-ui-toolkit";
 
-import Form from "core/component/form/Form";
-import {useAppContext} from "core/context/AppContext";
-import {useState} from "react";
+import {useAppContext} from "../context/AppContext";
+import Form from "../component/form/Form";
+import Page from "../component/page/Page";
 import Button from "../component/button/Button";
-import Page from "core/component/page/Page";
 
 function Login() {
   const {dispatchAppStateReducerAction} = useAppContext();
@@ -19,10 +19,10 @@ function Login() {
     <Page>
       <Form onSubmit={handleFormSubmit} customClassName={"login-page__form is-centered"}>
         <div>
-          <img src={logoSrc} alt="" className={"is-centered login-page__logo"} />
+          <img src={logoSrc} className={"is-centered login-page__logo"} alt={"logo"} />
 
           <label htmlFor={name} className={"typography--body-semibold"}>
-            Name
+            {"Name"}
           </label>
 
           <Input
@@ -35,7 +35,7 @@ function Login() {
           />
 
           <label htmlFor={surname} className={"typography--body-semibold"}>
-            Surname
+            {"Surname"}
           </label>
 
           <Input
@@ -50,7 +50,8 @@ function Login() {
           <Button
             size={"large"}
             type={"submit"}
-            customClassName={"login-page__form__button"}>
+            customClassName={"login-page__form__button"}
+          >
             {"Login"}
           </Button>
         </div>

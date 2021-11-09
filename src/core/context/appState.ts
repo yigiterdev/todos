@@ -1,10 +1,10 @@
-import webStorage from 'core/storage/webStorage';
-import { AppTheme, THEMES, TodoCards, User } from './types';
+import webStorage from "../storage/webStorage";
+import {AppTheme, THEMES, TodoCards, User} from "./types";
 
 const initialAppState = {
   theme: getInitialTheme(),
   user: null as null | User,
-  todoCards: null as null | TodoCards[],
+  todoCards: undefined as undefined | TodoCards[]
 };
 
 function getInitialTheme() {
@@ -12,14 +12,10 @@ function getInitialTheme() {
 
   try {
     const isBrowserDarkTheme =
-      window.matchMedia &&
-      window.matchMedia('(prefers-color-scheme: dark)').matches;
-    const storedTheme = webStorage.local.getItem('theme') as AppTheme | null;
+      window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches;
+    const storedTheme = webStorage.local.getItem("theme") as AppTheme | null;
 
-    if (
-      storedTheme &&
-      (storedTheme === THEMES.LIGHT || storedTheme === THEMES.DARK)
-    ) {
+    if (storedTheme && (storedTheme === THEMES.LIGHT || storedTheme === THEMES.DARK)) {
       initialTheme = storedTheme;
     } else {
       initialTheme = isBrowserDarkTheme ? THEMES.DARK : THEMES.LIGHT;
@@ -31,4 +27,4 @@ function getInitialTheme() {
   return initialTheme;
 }
 
-export { initialAppState };
+export {initialAppState};

@@ -13,7 +13,8 @@ module.exports = {
     "@hipo/eslint-config-base",
     "@hipo/eslint-config-react",
     "@hipo/eslint-config-typescript",
-    "plugin:jsx-a11y/recommended"
+    "plugin:jsx-a11y/recommended",
+    "prettier"
   ],
   parserOptions: {
     project: path.resolve(__dirname, "./tsconfig.json"),
@@ -30,7 +31,9 @@ module.exports = {
       version: "detect"
     },
     "import/resolver": {
-      typescript: {}
+      node: {
+        extensions: [".js", ".jsx", ".ts", ".tsx"]
+      }
     }
   },
   globals: {},

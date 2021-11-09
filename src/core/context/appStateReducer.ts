@@ -1,109 +1,105 @@
-import { uuid } from 'react-uuid';
+// import {uuid} from "uuid";
 
-import { initialAppState } from './appState';
-import { THEMES, Todos, User } from './types';
+import {initialAppState} from "./appState";
+import {THEMES, Todos, User} from "./types";
 
 export type AppState = typeof initialAppState;
 
 export type AppStateReducerAction =
   | {
-      type: 'CHANGE_THEME';
+      type: "CHANGE_THEME";
     }
   | {
-      type: 'SET_USER';
+      type: "SET_USER";
       user: User;
     }
   | {
-      type: 'ADD_TODO_CARDS';
+      type: "ADD_TODO_CARDS";
       category: string;
     }
   | {
-      type: 'REMOVE_TODO_CARD';
+      type: "REMOVE_TODO_CARD";
       id: string;
     }
   | {
-      type: 'HANDLE_CARD_TITLE';
+      type: "HANDLE_CARD_TITLE";
       title: string;
       id: string;
     }
   | {
-      type: 'HANDLE_CARD_SAVE';
+      type: "HANDLE_CARD_SAVE";
       save: boolean;
       id: string;
     }
   | {
-      type: 'HANDLE_CARD_TODOS';
+      type: "HANDLE_CARD_TODOS";
       todos: Todos[];
       id: string;
     };
 
-function appStateReducer(
-  state: AppState,
-  action: AppStateReducerAction
-): AppState {
+function appStateReducer(state: AppState, action: AppStateReducerAction): AppState {
   let newState = state;
 
   switch (action.type) {
-    case 'CHANGE_THEME': {
+    case "CHANGE_THEME": {
       newState = {
         ...state,
-        theme: state.theme === THEMES.DARK ? THEMES.LIGHT : THEMES.DARK,
+        theme: state.theme === THEMES.DARK ? THEMES.LIGHT : THEMES.DARK
       };
       break;
     }
 
-    case 'SET_USER': {
+    /*
+    case "SET_USER": {
       newState = {
         ...state,
-        user: action.user,
+        user: action.user
       };
 
       break;
     }
 
-    case 'ADD_TODO_CARDS': {
+    case "ADD_TODO_CARDS": {
       newState = {
         ...state,
         todoCards: [
-          ...state.todoCards,
           {
             category: action.category,
             id: uuid(),
-            title: 'New Todo',
+            title: "New Todo",
             saved: false,
-            todos: [],
-          },
-        ],
+            todos: []
+          }
+        ]
       };
 
       break;
     }
 
-    case 'REMOVE_TODO_CARD': {
-      const newTodoCards = state.todoCards.filter(
-        (item) => item.id !== action.id
-      );
+    case "REMOVE_TODO_CARD": {
+      const newTodoCards = state.todoCards?.filter((item) => item.id !== action.id);
 
       newState = {
         ...state,
-        todoCards: newTodoCards,
+        todoCards: newTodoCards
       };
 
       break;
     }
 
-    case 'HANDLE_CARD_TITLE': {
-      const newTodoCards = [];
+    case "HANDLE_CARD_TITLE": {
+      const newTodoCards= undefined;
 
-      state.todoCards.forEach((todocard) => {
+      state.todoCards?.forEach((todocard) => {
         if (todocard.id === action.id) {
           const newTodoCard = {
             category: todocard.category,
             id: todocard.id,
             title: action.title,
             saved: todocard.saved,
-            todos: todocard.todos,
+            todos: todocard.todos
           };
+
           newTodoCards.push(newTodoCard);
         } else {
           newTodoCards.push(todocard);
@@ -112,24 +108,25 @@ function appStateReducer(
 
       newState = {
         ...state,
-        todoCards: newTodoCards,
+        todoCards: newTodoCards
       };
 
       break;
     }
 
-    case 'HANDLE_CARD_SAVE': {
+    case "HANDLE_CARD_SAVE": {
       const newTodoCards = [];
 
-      state.todoCards.forEach((todocard) => {
+      state.todoCards?.forEach((todocard) => {
         if (todocard.id === action.id) {
           const newTodoCard = {
             category: todocard.category,
             id: todocard.id,
             title: todocard.title,
             saved: action.save,
-            todos: todocard.todos,
+            todos: todocard.todos
           };
+
           newTodoCards.push(newTodoCard);
         } else {
           newTodoCards.push(todocard);
@@ -138,13 +135,13 @@ function appStateReducer(
 
       newState = {
         ...state,
-        todoCards: newTodoCards,
+        todoCards: newTodoCards
       };
 
       break;
     }
 
-    case 'HANDLE_CARD_TODOS': {
+    case "HANDLE_CARD_TODOS": {
       const newTodoCards = [];
 
       state.todoCards.forEach((todocard) => {
@@ -154,7 +151,7 @@ function appStateReducer(
             id: todocard.id,
             title: todocard.title,
             saved: todocard.saved,
-            todos: action.todos,
+            todos: action.todos
           };
           newTodoCards.push(newTodoCard);
         } else {
@@ -164,11 +161,12 @@ function appStateReducer(
 
       newState = {
         ...state,
-        todoCards: newTodoCards,
+        todoCards: newTodoCards
       };
 
       break;
     }
+    */
 
     default:
       break;
@@ -177,4 +175,4 @@ function appStateReducer(
   return newState;
 }
 
-export { appStateReducer, initialAppState };
+export {appStateReducer, initialAppState};

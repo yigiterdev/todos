@@ -1,6 +1,6 @@
 export const THEMES = {
-  LIGHT: 'light-theme',
-  DARK: 'dark-theme',
+  LIGHT: "light-theme",
+  DARK: "dark-theme"
 } as const;
 
 export type AppTheme = ValueOf<typeof THEMES>;

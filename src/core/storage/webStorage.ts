@@ -1,4 +1,4 @@
-const { localStorage, sessionStorage } = window;
+const {localStorage, sessionStorage} = window;
 
 const webStorage = {
   local: {
@@ -14,7 +14,7 @@ const webStorage = {
     },
     removeItem(itemName: string) {
       localStorage.removeItem(itemName);
-    },
+    }
   },
   session: {
     setItem(itemName: string, itemValue: WebStorageStoredValue) {
@@ -29,7 +29,7 @@ const webStorage = {
     },
     removeItem(itemName: string) {
       sessionStorage.removeItem(itemName);
-    },
+    }
   },
 
   getFromWebStorage(itemName: string): WebStorageStoredValue {
@@ -44,7 +44,7 @@ const webStorage = {
   removeFromWebStorage(itemName: string) {
     webStorage.session.removeItem(itemName);
     webStorage.local.removeItem(itemName);
-  },
+  }
 };
 
 export default webStorage;
