@@ -7,7 +7,7 @@ function App() {
   return (
     <div className="App">
       <div style={{ display: 'flex', gap: '8px' }}>
-        <span>{'Dark Theme'}</span>
+        <span>{'Dark Themee'}</span>
 
         <Switch
           isToggledOn={appState.theme === 'dark-theme'}
