@@ -3,4 +3,4 @@
 
 npx lint-staged
 echo "type-checking..."
-npm run type-check:watch
+./node_modules/.bin/tsc --noEmit
