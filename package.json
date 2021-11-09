@@ -27,7 +27,8 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "prepare": "./node_modules/.bin/husky install"
+    "prepare": "./node_modules/.bin/husky install",
+    "type-check:watch": "tsc --watch"
   },
   "eslintConfig": {
     "extends": [

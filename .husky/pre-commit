@@ -1,6 +1,5 @@
 #!/bin/sh
 . "$(dirname "$0")/_/husky.sh"
 
-npx lint-staged
 echo "type-checking..."
-./node_modules/.bin/tsc --noEmit
+npm run type-check:watch
