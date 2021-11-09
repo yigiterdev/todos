@@ -1,3 +1,5 @@
+import logoSrc from '../ui/img/todos.png';
+
 import './_login.scss';
 
 import { Input } from '@hipo/react-ui-toolkit';
@@ -5,6 +7,7 @@ import Form from 'core/component/form/Form';
 import { useAppContext } from 'core/context/AppContext';
 import { useState } from 'react';
 import Button from '../component/button/Button';
+import Page from 'core/component/page/Page';
 
 function Login() {
   const { dispatchAppStateReducerAction } = useAppContext();
@@ -12,44 +15,54 @@ function Login() {
   const [surname, setSurname] = useState('');
 
   return (
-    <Form
-      onSubmit={handleFormSubmit}
-      customClassName={'login-page__form is-centered'}
-    >
-      <div>
-        <label htmlFor={name} className={'typography--body-semibold'}>
-          Name
-        </label>
-        <Input
-          customClassName={'login-page__form__input'}
-          name={'name'}
-          type={'text'}
-          value={name}
-          onChange={handleInputChange}
-          placeholder={'Name'}
-        />
+    <Page>
+      <Form
+        onSubmit={handleFormSubmit}
+        customClassName={'login-page__form is-centered'}
+      >
+        <div>
+          <img
+            src={logoSrc}
+            alt=""
+            className={'is-centered login-page__logo'}
+          />
 
-        <label htmlFor={surname} className={'typography--body-semibold'}>
-          Surname
-        </label>
-        <Input
-          customClassName={'login-page__form__input'}
-          name={'surname'}
-          type={'text'}
-          value={surname}
-          onChange={handleInputChange}
-          placeholder={'Surname'}
-        />
+          <label htmlFor={name} className={'typography--body-semibold'}>
+            Name
+          </label>
 
-        <Button
-          size={'large'}
-          type={'submit'}
-          customClassName={'login-page__form__button'}
-        >
-          {'Login'}
-        </Button>
-      </div>
-    </Form>
+          <Input
+            customClassName={'login-page__form__input'}
+            name={'name'}
+            type={'text'}
+            value={name}
+            onChange={handleInputChange}
+            placeholder={'Name'}
+          />
+
+          <label htmlFor={surname} className={'typography--body-semibold'}>
+            Surname
+          </label>
+
+          <Input
+            customClassName={'login-page__form__input'}
+            name={'surname'}
+            type={'text'}
+            value={surname}
+            onChange={handleInputChange}
+            placeholder={'Surname'}
+          />
+
+          <Button
+            size={'large'}
+            type={'submit'}
+            customClassName={'login-page__form__button'}
+          >
+            {'Login'}
+          </Button>
+        </div>
+      </Form>
+    </Page>
   );
 
   function handleInputChange(event: React.SyntheticEvent<HTMLInputElement>) {

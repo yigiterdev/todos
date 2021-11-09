@@ -2,6 +2,7 @@
   --background: var(--white);
   --header-background: transparent;
   --header-border-color: var(--gray-100);
+  --default-border-color: var(--black);
 
   // Text
   --text-main: var(--gray-900);
@@ -14,7 +15,6 @@
   --button-primary-hover-text: var(--white);
 
   // Helpers
-
   --purple: var(--purple-400);
   --purple-darker: var(--purple-500);
   --orange: var(--orange-400);
@@ -23,12 +23,14 @@
   --neutral-darker: var(--gray-200);
   --neutral: var(--gray-100);
   --neutral-lighter: var(--gray-50);
+  --todos-yellow: var(--yellow-400);
 }
 
 .dark-theme {
   --background: var(--gray-900);
   --header-background: var(--black);
   --header-border-color: var(--black);
+  --default-border-color: var(--gray-500);
 
   // Text
   --text-main: var(--white);
@@ -50,4 +52,5 @@
   --neutral-darker: var(--gray-200);
   --neutral: var(--gray-100);
   --neutral-lighter: var(--gray-50);
+  --todos-yellow: var(--yellow-400);
 }

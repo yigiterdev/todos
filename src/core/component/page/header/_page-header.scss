@@ -12,6 +12,12 @@
 .page-header__theme-select {
   display: grid;
   align-items: center;
-  grid-template-columns: max-content 60px;
+  justify-content: center;
+  grid-template-columns: 60px 24px;
   gap: 10px;
+
+  svg {
+    width: 24px;
+    height: 24px;
+  }
 }

@@ -1,3 +1,4 @@
+import '@hipo/react-ui-toolkit/dist/main.css';
 import './core/ui/style/_global.scss';
 import './core/ui/style/_align.scss';
 import './core/ui/style/_media-queries.scss';
@@ -7,7 +8,6 @@ import './core/ui/typography/_typography.scss';
 import './core/ui/typography/_fonts.scss';
 import './core/ui/style/overrides/_button.scss';
 import './core/ui/style/overrides/_input.scss';
-import '@hipo/react-ui-toolkit/dist/main.css';
 
 import React from 'react';
 import ReactDOM from 'react-dom';
