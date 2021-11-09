@@ -1,4 +1,4 @@
-* {
+body {
   box-sizing: border-box;
 
   margin: 0;
@@ -9,9 +9,6 @@
   font-smooth: antialiased;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-
-  background: var(--background);
-  color: var(--text-main);
 }
 
 ul,
