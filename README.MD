@@ -1,7 +1,7 @@
 # todos_new
 
 
-This project was generated with [superplate](https://github.com/pankod/
+This project was generated with [superplate](https://github.com/pankod/)
 
 ## Getting Started
 
