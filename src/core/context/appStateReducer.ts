@@ -1,7 +1,7 @@
-// import {uuid} from "uuid";
+import {v4 as uuidv4} from "uuid";
 
 import {initialAppState} from "./appState";
-import {THEMES, Todos, User} from "./types";
+import {THEMES, TodoCards, Todos, User} from "./types";
 
 export type AppState = typeof initialAppState;
 
@@ -49,7 +49,6 @@ function appStateReducer(state: AppState, action: AppStateReducerAction): AppSta
       break;
     }
 
-    /*
     case "SET_USER": {
       newState = {
         ...state,
@@ -65,7 +64,7 @@ function appStateReducer(state: AppState, action: AppStateReducerAction): AppSta
         todoCards: [
           {
             category: action.category,
-            id: uuid(),
+            id: uuidv4(),
             title: "New Todo",
             saved: false,
             todos: []
@@ -88,11 +87,11 @@ function appStateReducer(state: AppState, action: AppStateReducerAction): AppSta
     }
 
     case "HANDLE_CARD_TITLE": {
-      const newTodoCards= undefined;
+      const newTodoCards: TodoCards[] = [];
 
       state.todoCards?.forEach((todocard) => {
         if (todocard.id === action.id) {
-          const newTodoCard = {
+          const newTodoCard: TodoCards = {
             category: todocard.category,
             id: todocard.id,
             title: action.title,
@@ -115,11 +114,11 @@ function appStateReducer(state: AppState, action: AppStateReducerAction): AppSta
     }
 
     case "HANDLE_CARD_SAVE": {
-      const newTodoCards = [];
+      const newTodoCards: TodoCards[] = [];
 
       state.todoCards?.forEach((todocard) => {
         if (todocard.id === action.id) {
-          const newTodoCard = {
+          const newTodoCard: TodoCards = {
             category: todocard.category,
             id: todocard.id,
             title: todocard.title,
@@ -142,17 +141,18 @@ function appStateReducer(state: AppState, action: AppStateReducerAction): AppSta
     }
 
     case "HANDLE_CARD_TODOS": {
-      const newTodoCards = [];
+      const newTodoCards: TodoCards[] = [];
 
-      state.todoCards.forEach((todocard) => {
+      state.todoCards?.forEach((todocard) => {
         if (todocard.id === action.id) {
-          const newTodoCard = {
+          const newTodoCard: TodoCards = {
             category: todocard.category,
             id: todocard.id,
             title: todocard.title,
             saved: todocard.saved,
             todos: action.todos
           };
+
           newTodoCards.push(newTodoCard);
         } else {
           newTodoCards.push(todocard);
@@ -166,7 +166,6 @@ function appStateReducer(state: AppState, action: AppStateReducerAction): AppSta
 
       break;
     }
-    */
 
     default:
       break;

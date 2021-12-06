@@ -9,7 +9,7 @@ export interface TodoCards {
   category: string;
   id: string;
   title: string;
-  saved: false;
+  saved: boolean;
   todos: Todos[] | null;
 }
 
