@@ -1,0 +1,18 @@
+@import "../core/ui/style/media-queries";
+
+.home-page {
+  display: grid;
+  grid-template-columns: 300px auto;
+}
+
+.home-page__sidebar {
+  height: 100vh;
+
+  background-color: var(--home-page-sidebar-background-color);
+}
+
+@include for-small-screens {
+  .home-page {
+    grid-template-columns: 1fr;
+  }
+}

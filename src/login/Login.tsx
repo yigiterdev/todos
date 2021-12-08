@@ -1,19 +1,21 @@
-import logoSrc from "../ui/img/todos.png";
+import logoSrc from "../core/ui/img/todos.png";
 
 import "./_login.scss";
 
 import {useState} from "react";
+import {useHistory} from "react-router";
 import {Input} from "@hipo/react-ui-toolkit";
 
-import {useAppContext} from "../context/AppContext";
-import Form from "../component/form/Form";
-import Page from "../component/page/Page";
-import Button from "../component/button/Button";
+import {useAppContext} from "../core/context/AppContext";
+import Form from "../core/component/form/Form";
+import Page from "../core/component/page/Page";
+import Button from "../core/component/button/Button";
 
 function Login() {
   const {dispatchAppStateReducerAction} = useAppContext();
   const [name, setName] = useState("");
   const [surname, setSurname] = useState("");
+  const history = useHistory();
 
   return (
     <Page>
@@ -75,6 +77,7 @@ function Login() {
         surname
       }
     });
+    history.push("/");
   }
 }
 

@@ -3,7 +3,7 @@ import {AppTheme, THEMES, TodoCards, User} from "./types";
 
 const initialAppState = {
   theme: getInitialTheme(),
-  user: null as null | User,
+  user: webStorage.local.getItem("user") as null | User,
   todoCards: undefined as undefined | TodoCards[]
 };
 

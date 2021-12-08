@@ -2,6 +2,7 @@ import React, {
   createContext,
   Dispatch,
   useContext,
+  useEffect,
   useLayoutEffect,
   useReducer
 } from "react";
@@ -20,6 +21,10 @@ function AppContextProvider({children}: {children: React.ReactNode}) {
     appStateReducer,
     initialAppState
   );
+
+  useEffect(() => {
+    webStorage.local.setItem("user", appState.user);
+  }, [appState.user]);
 
   useLayoutEffect(() => {
     webStorage.local.setItem("theme", appState.theme);
