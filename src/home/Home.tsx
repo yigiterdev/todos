@@ -4,6 +4,8 @@ import {useEffect} from "react";
 import {useHistory} from "react-router";
 
 import {useAppContext} from "../core/context/AppContext";
+import HomePageSidebar from "./sidebar/HomePageSidebar";
+import HomePageDashboard from "./dashboard/HomePageDashboard";
 
 function Home() {
   const {
@@ -19,8 +21,8 @@ function Home() {
 
   return (
     <div className={"home-page"}>
-      <div className={"home-page__sidebar"}>{"Sidebar"}</div>
-      <div className={"home-page__dashboard"}>{"Dashboard"}</div>
+      <HomePageSidebar customClassName={"home-page__sidebar"} />
+      <HomePageDashboard customClassName={"home-page__dashboard"} />
     </div>
   );
 }

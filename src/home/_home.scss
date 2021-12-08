@@ -3,16 +3,34 @@
 .home-page {
   display: grid;
   grid-template-columns: 300px auto;
+
+  color: var(--text-main);
 }
 
 .home-page__sidebar {
   height: 100vh;
 
   background-color: var(--home-page-sidebar-background-color);
+
+  border-right: 2px solid var(--header-border-color);
+}
+
+.home-page__dashboard {
+  height: 100%;
+
+  padding: 20px;
+
+  background-color: var(--home-page-dashboard-background-color);
 }
 
 @include for-small-screens {
   .home-page {
     grid-template-columns: 1fr;
+  }
+
+  .home-page__sidebar {
+    height: fit-content;
+
+    border-bottom: 2px solid var(--header-border-color);
   }
 }
