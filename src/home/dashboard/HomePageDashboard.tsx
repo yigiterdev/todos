@@ -1,3 +1,5 @@
+import "./_home-page-dashboard.scss";
+
 interface HomePageDashboardProps {
   customClassName?: string;
 }
@@ -5,7 +7,9 @@ interface HomePageDashboardProps {
 function HomePageDashboard({customClassName}: HomePageDashboardProps) {
   return (
     <div className={customClassName}>
-      <h1>{"Dashboard"}</h1>
+      <div className={"home-page-dashboard__content"}>
+        <h1>{"Dashboard"}</h1>
+      </div>
     </div>
   );
 }
