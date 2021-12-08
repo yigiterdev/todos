@@ -1,6 +1,6 @@
 {
-  "name": "todos_new",
-  "version": "0.2.0",
+  "name": "todos",
+  "version": "0.3.0",
   "private": true,
   "dependencies": {
     "@hipo/stylelint-config-base": "^2.3.0",
