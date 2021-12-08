@@ -1,20 +1,20 @@
+/* stylelint-disable */
 .light-theme {
   --background: var(--white);
   --header-background: transparent;
   --header-border-color: var(--gray-100);
   --default-border-color: var(--black);
+  --home-page-sidebar-background-color: var(--white);
+  --home-page-dashboard-background-color: var(--white);
 
-  // Text
   --text-main: var(--gray-900);
 
-  // Primary Button
   --button-primary-bg: var(--turquoise-500);
   --button-primary-hover-bg: var(--turquoise-400);
   --button-primary-disabled-bg: var(--gray-100);
   --button-primary-text: var(--white);
   --button-primary-hover-text: var(--white);
 
-  // Helpers
   --purple: var(--purple-400);
   --purple-darker: var(--purple-500);
   --orange: var(--orange-400);
@@ -31,18 +31,16 @@
   --header-background: var(--black);
   --header-border-color: var(--black);
   --default-border-color: var(--gray-500);
+  --home-page-sidebar-background-color: var(--black);
+  --home-page-dashboard-background-color: var(--gray-900);
 
-  // Text
   --text-main: var(--white);
 
-  // Primary Button
   --button-primary-bg: var(--turquoise-500);
   --button-primary-hover-bg: var(--turquoise-400);
   --button-primary-disabled-bg: var(--gray-100);
   --button-primary-text: var(--white);
   --button-primary-hover-text: var(--white);
-
-  // Helpers
 
   --purple: var(--purple-400);
   --purple-darker: var(--purple-500);

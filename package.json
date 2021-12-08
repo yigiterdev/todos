@@ -3,6 +3,7 @@
   "version": "0.2.0",
   "private": true,
   "dependencies": {
+    "@hipo/stylelint-config-base": "^2.3.0",
     "@testing-library/jest-dom": "^5.12.0",
     "@testing-library/react": "^11.2.6",
     "@testing-library/user-event": "^12.8.3",
@@ -70,7 +71,6 @@
     "@hipo/eslint-config-react": "^2.1.0",
     "@hipo/eslint-config-typescript": "^1.0.1",
     "@hipo/react-ui-toolkit": "^1.0.0-alpha.5.1.1",
-    "@hipo/stylelint-config-base": "^2.3.0",
     "@types/prettier": "^2.4.1",
     "@types/uuid": "^8.3.3",
     "@typescript-eslint/parser": "^5.3.1",
