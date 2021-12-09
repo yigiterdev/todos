@@ -21,7 +21,7 @@ function HomePageSidebar({customClassName}: HomePageSidebarProps) {
 
       <span
         className={"is-centered typography--body-semibold"}
-      >{`${user?.name} ${user?.surname}`}</span>
+      >{`${user?.username}`}</span>
     </div>
   );
 }
