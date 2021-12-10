@@ -1,5 +1,3 @@
-import logoSrc from "../core/ui/img/todos.png";
-
 import "./_login.scss";
 
 import {useState} from "react";
@@ -17,8 +15,6 @@ function Login() {
     <Page>
       <Form onSubmit={signIn} customClassName={"login-page__form is-centered"}>
         <div>
-          <img src={logoSrc} className={"is-centered login-page__logo"} alt={"logo"} />
-
           <h2 className={"is-centered typography--h4"}>{"Login"}</h2>
 
           <label htmlFor={email} className={"typography--body-semibold"}>

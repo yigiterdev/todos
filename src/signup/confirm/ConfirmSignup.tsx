@@ -1,5 +1,3 @@
-import logoSrc from "../../core/ui/img/todos.png";
-
 import {Input} from "@hipo/react-ui-toolkit";
 import {useState} from "react";
 
@@ -15,8 +13,6 @@ function ConfirmSignup() {
     <Page>
       <Form onSubmit={confirmSignUp} customClassName={"login-page__form is-centered"}>
         <div>
-          <img src={logoSrc} className={"is-centered login-page__logo"} alt={"logo"} />
-
           <h2 className={"is-centered typography--h4"}>{"Confirm signup"}</h2>
 
           <label htmlFor={email} className={"typography--body-semibold"}>
