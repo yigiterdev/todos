@@ -3,7 +3,6 @@ import {Route, Switch} from "react-router-dom";
 import Login from "../../login/Login";
 import Home from "../../home/Home";
 import Signup from "../../signup/Signup";
-import ConfirmSignup from "../../signup/confirm/ConfirmSignup";
 
 function App() {
   return (
@@ -18,10 +17,6 @@ function App() {
 
       <Route path={"/signup"}>
         <Signup />
-      </Route>
-
-      <Route path={"/confirm-signup"}>
-        <ConfirmSignup />
       </Route>
     </Switch>
   );

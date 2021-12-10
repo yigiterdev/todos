@@ -12,6 +12,10 @@
   height: 80vh;
 }
 
+.login-page__form__header {
+  margin-bottom: 14px;
+}
+
 .login-page__form__input {
   width: 400px;
 
@@ -20,6 +24,15 @@
 
 .login-page__form__button {
   margin: auto;
+  margin-bottom: 14px;
+}
+
+.login-page__form__link {
+  color: var(--button-primary-bg);
+
+  &:hover {
+    opacity: 0.8;
+  }
 }
 
 @include for-small-screens {

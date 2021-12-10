@@ -12,6 +12,7 @@ import "./core/ui/style/overrides/_input.scss";
 import React from "react";
 import ReactDOM from "react-dom";
 import {BrowserRouter} from "react-router-dom";
+import {ChakraProvider} from "@chakra-ui/react";
 
 import reportWebVitals from "./reportWebVitals";
 import App from "./core/app/App";
@@ -19,11 +20,13 @@ import {AppContextProvider} from "./core/context/AppContext";
 
 ReactDOM.render(
   <React.StrictMode>
-    <BrowserRouter>
-      <AppContextProvider>
-        <App />
-      </AppContextProvider>
-    </BrowserRouter>
+    <ChakraProvider>
+      <BrowserRouter>
+        <AppContextProvider>
+          <App />
+        </AppContextProvider>
+      </BrowserRouter>
+    </ChakraProvider>
   </React.StrictMode>,
 
   document.getElementById("root")
