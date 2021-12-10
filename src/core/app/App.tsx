@@ -1,13 +1,9 @@
 import {Route, Switch} from "react-router-dom";
-import Amplify from "aws-amplify";
 
 import Login from "../../login/Login";
 import Home from "../../home/Home";
-import awsmobile from "../../aws-exports";
 import Signup from "../../signup/Signup";
 import ConfirmSignup from "../../signup/confirm/ConfirmSignup";
-
-Amplify.configure(awsmobile);
 
 function App() {
   return (

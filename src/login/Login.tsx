@@ -3,20 +3,15 @@ import logoSrc from "../core/ui/img/todos.png";
 import "./_login.scss";
 
 import {useState} from "react";
-import {useHistory} from "react-router";
-import {Auth} from "aws-amplify";
 import {Input} from "@hipo/react-ui-toolkit";
 
-import {useAppContext} from "../core/context/AppContext";
 import Form from "../core/component/form/Form";
 import Page from "../core/component/page/Page";
 import Button from "../core/component/button/Button";
 
 function Login() {
-  const {dispatchAppStateReducerAction} = useAppContext();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const history = useHistory();
 
   return (
     <Page>
@@ -64,22 +59,8 @@ function Login() {
     </Page>
   );
 
-  async function signIn() {
-    try {
-      const username = email;
-      // @ts-ignore 'user' is declared but its value is never read.
-      const user = await Auth.signIn(username, password);
-
-      dispatchAppStateReducerAction({
-        type: "SET_USER",
-        user: {
-          username: email
-        }
-      });
-      history.push("/");
-    } catch (error) {
-      console.log("error signing in", error);
-    }
+  function signIn() {
+    console.log("Login");
   }
 
   function handleInputChange(event: React.SyntheticEvent<HTMLInputElement>) {

@@ -2,8 +2,6 @@ import logoSrc from "../core/ui/img/todos.png";
 
 import {useState} from "react";
 import {Input} from "@hipo/react-ui-toolkit";
-import {Auth} from "aws-amplify";
-import {useHistory} from "react-router";
 
 import Form from "../core/component/form/Form";
 import Page from "../core/component/page/Page";
@@ -12,7 +10,6 @@ import Button from "../core/component/button/Button";
 function Signup() {
   const [password, setPassword] = useState("");
   const [email, setEmail] = useState("");
-  const history = useHistory();
 
   return (
     <Page>
@@ -60,18 +57,8 @@ function Signup() {
     </Page>
   );
 
-  async function signUp() {
-    try {
-      // @ts-ignore 'user' is declared but its value is never read.
-      const {user} = await Auth.signUp({
-        username: email,
-        password
-      });
-
-      history.push("/confirm-signup");
-    } catch (error) {
-      console.log("error signing up:", error);
-    }
+  function signUp() {
+    console.log("Sign up");
   }
 
   function handleInputChange(event: React.SyntheticEvent<HTMLInputElement>) {

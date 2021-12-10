@@ -2,7 +2,6 @@ import logoSrc from "../../core/ui/img/todos.png";
 
 import {Input} from "@hipo/react-ui-toolkit";
 import {useState} from "react";
-import {Auth} from "aws-amplify";
 
 import Form from "../../core/component/form/Form";
 import Page from "../../core/component/page/Page";
@@ -58,15 +57,8 @@ function ConfirmSignup() {
     </Page>
   );
 
-  async function confirmSignUp() {
-    try {
-      const username = email;
-      const code = verificationCode;
-
-      await Auth.confirmSignUp(username, code);
-    } catch (error) {
-      console.log("error confirming sign up", error);
-    }
+  function confirmSignUp() {
+    console.log("Confirm");
   }
 
   function handleInputChange(event: React.SyntheticEvent<HTMLInputElement>) {
