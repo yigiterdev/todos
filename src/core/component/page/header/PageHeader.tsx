@@ -1,6 +1,6 @@
 import "./_page-header.scss";
 
-import logoSrc from "../../../ui/img/todos.png";
+import logoSrc from "../../../ui/img/todos--bigger.png";
 
 import ThemeSwitch from "../../theme-switch/ThemeSwitch";
 

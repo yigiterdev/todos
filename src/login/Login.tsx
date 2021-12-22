@@ -20,7 +20,7 @@ function Login() {
   const toast = useToast();
 
   return (
-    <Page>
+    <Page metaAttributes={{title: "Login | Todos"}}>
       <Form onSubmit={signIn} customClassName={"login-page__form is-centered"}>
         <div>
           <h2 className={"is-centered typography--h4 login-page__form__header"}>
@@ -61,12 +61,12 @@ function Login() {
             {"Login"}
           </Button>
 
-          <span className={"typography--body-semibold"}>
-            {"Don't have "}
-            <Link className={"login-page__form__link"} to={"/signup"}>
-              {"account?"}
-            </Link>
-          </span>
+          <Link
+            className={"typography--body-semibold is-centered login-page__form__link"}
+            to={"/signup"}
+          >
+            {"Let's get you an account!"}
+          </Link>
         </div>
       </Form>
     </Page>
@@ -93,22 +93,19 @@ function Login() {
           title: "Login successful",
           description: "We are going to redirect you home page",
           status: "success",
-          position: "top",
+          position: "bottom-right",
           duration: 2000,
           isClosable: true
         });
 
-        setInterval(() => {
-          history.push("/");
-          // eslint-disable-next-line
-        }, 2000);
+        history.push("/");
       }
     } catch (error) {
       toast({
         title: "Login unsuccessful",
         description: "User credentials is not true",
         status: "error",
-        position: "top",
+        position: "bottom-right",
         duration: 5000,
         isClosable: true
       });

@@ -3,7 +3,7 @@ import {AppTheme, THEMES, TodoCards, User} from "./types";
 
 const initialAppState = {
   theme: getInitialTheme(),
-  user: webStorage.local.getItem("user") as null | User,
+  user: getInitialUser(),
   todoCards: undefined as undefined | TodoCards[]
 };
 
@@ -27,4 +27,8 @@ function getInitialTheme() {
   return initialTheme;
 }
 
-export {initialAppState};
+function getInitialUser() {
+  return webStorage.local.getItem("user") as null | User;
+}
+
+export {initialAppState, getInitialUser};

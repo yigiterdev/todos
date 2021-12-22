@@ -11,7 +11,7 @@ export type AppStateReducerAction =
     }
   | {
       type: "SET_USER";
-      user: User;
+      user: User | null;
     }
   | {
       type: "ADD_TODO_CARDS";

@@ -6,6 +6,7 @@ import {useHistory} from "react-router";
 import {useAppContext} from "../core/context/AppContext";
 import HomePageSidebar from "./sidebar/HomePageSidebar";
 import HomePageDashboard from "./dashboard/HomePageDashboard";
+import Page from "../core/component/page/Page";
 
 function Home() {
   const {
@@ -20,10 +21,14 @@ function Home() {
   }, [user, history]);
 
   return (
-    <div className={"home-page"}>
+    <Page
+      customClassName={"home-page"}
+      metaAttributes={{title: "Home | Todos"}}
+      shouldDisplayHeader={false}
+    >
       <HomePageSidebar customClassName={"home-page__sidebar"} />
       <HomePageDashboard customClassName={"home-page__dashboard"} />
-    </div>
+    </Page>
   );
 }
 

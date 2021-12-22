@@ -1,6 +1,6 @@
 import {useState} from "react";
 import {Input} from "@hipo/react-ui-toolkit";
-import {Link} from "react-router-dom";
+import {Link, useHistory} from "react-router-dom";
 import {useToast} from "@chakra-ui/react";
 
 import Form from "../core/component/form/Form";
@@ -12,17 +12,18 @@ function Signup() {
   const [password, setPassword] = useState("");
   const [email, setEmail] = useState("");
   const [username, setUsername] = useState("");
+  const history = useHistory();
   const toast = useToast();
 
   return (
-    <Page>
+    <Page metaAttributes={{title: "Signup | Todos"}}>
       <Form onSubmit={signUp} customClassName={"login-page__form is-centered"}>
         <div>
           <h2 className={"is-centered typography--h4 login-page__form__header"}>
             {"Signup"}
           </h2>
 
-          <label htmlFor={password} className={"typography--body-semibold"}>
+          <label htmlFor={username} className={"typography--body-semibold"}>
             {"Username"}
           </label>
 
@@ -69,12 +70,12 @@ function Signup() {
             {"Signup"}
           </Button>
 
-          <span className={"typography--body-semibold"}>
-            {"Do you have "}
-            <Link className={"login-page__form__link"} to={"/login"}>
-              {"account?"}
-            </Link>
-          </span>
+          <Link
+            className={"typography--body-semibold is-centered login-page__form__link"}
+            to={"/login"}
+          >
+            {"Already have an account?"}
+          </Link>
         </div>
       </Form>
     </Page>
@@ -97,18 +98,21 @@ function Signup() {
       if (error) throw error;
       toast({
         title: "Signup successful",
-        description: "You have to confirm your email address.",
-        status: "warning",
-        position: "top",
+        description: "You have to confirm your email address before login.",
+        status: "success",
+        position: "bottom-right",
         duration: 10000,
         isClosable: true
       });
+
+      history.push("/login");
     } catch (error) {
       toast({
         title: "Signup wasn't successful",
-        description: "Please, Try again.",
+        description:
+          "This email is already registered. Please, Try different email address.",
         status: "error",
-        position: "top",
+        position: "bottom-right",
         duration: 10000,
         isClosable: true
       });

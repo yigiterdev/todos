@@ -9,6 +9,7 @@ import ThemeSwitch from "../../core/component/theme-switch/ThemeSwitch";
 import Button from "../../core/component/button/Button";
 import {supabase} from "../../supabaseClient";
 import webStorage from "../../core/storage/webStorage";
+import {getInitialUser} from "../../core/context/appState";
 
 interface HomePageSidebarProps {
   customClassName?: string;
@@ -16,14 +17,11 @@ interface HomePageSidebarProps {
 
 function HomePageSidebar({customClassName}: HomePageSidebarProps) {
   const {
-    appState: {user}
+    appState: {user},
+    dispatchAppStateReducerAction
   } = useAppContext();
   const toast = useToast();
   const history = useHistory();
-
-  const usera = supabase.auth.user();
-
-  console.log(usera);
 
   return (
     <div className={customClassName}>
@@ -52,24 +50,27 @@ function HomePageSidebar({customClassName}: HomePageSidebarProps) {
 
       webStorage.local.removeItem("user");
 
+      dispatchAppStateReducerAction({
+        type: "SET_USER",
+        user: getInitialUser()
+      });
+
       toast({
         title: "Logout successful",
         description: "We are going to redirect you login page",
         status: "success",
-        position: "top",
+        position: "bottom-right",
         duration: 2000,
         isClosable: true
       });
-      setInterval(() => {
-        history.push("/login");
-        // eslint-disable-next-line
-      }, 2000);
+
+      history.push("/login");
     } catch (error) {
       toast({
         title: "Login wasn't successful",
         description: "When you try to logout error occurs",
         status: "error",
-        position: "top",
+        position: "bottom-right",
         duration: 5000,
         isClosable: true
       });
