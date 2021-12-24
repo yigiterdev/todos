@@ -6,8 +6,9 @@ export const THEMES = {
 export type AppTheme = ValueOf<typeof THEMES>;
 
 export interface TodoCards {
-  category: string;
   id: string;
+  userId: string;
+  category: string;
   title: string;
   saved: boolean;
   todos: Todos[] | null;

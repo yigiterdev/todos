@@ -4,7 +4,7 @@ import {AppTheme, THEMES, TodoCards, User} from "./types";
 const initialAppState = {
   theme: getInitialTheme(),
   user: getInitialUser(),
-  todoCards: undefined as undefined | TodoCards[]
+  todoCards: [] as TodoCards[]
 };
 
 function getInitialTheme() {

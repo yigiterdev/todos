@@ -16,6 +16,7 @@ export type AppStateReducerAction =
   | {
       type: "ADD_TODO_CARDS";
       category: string;
+      userId: string;
     }
   | {
       type: "REMOVE_TODO_CARD";
@@ -62,8 +63,10 @@ function appStateReducer(state: AppState, action: AppStateReducerAction): AppSta
       newState = {
         ...state,
         todoCards: [
+          ...state.todoCards,
           {
             category: action.category,
+            userId: action.userId,
             id: uuidv4(),
             title: "New Todo",
             saved: false,
@@ -93,6 +96,7 @@ function appStateReducer(state: AppState, action: AppStateReducerAction): AppSta
         if (todocard.id === action.id) {
           const newTodoCard: TodoCards = {
             category: todocard.category,
+            userId: todocard.userId,
             id: todocard.id,
             title: action.title,
             saved: todocard.saved,
@@ -120,6 +124,7 @@ function appStateReducer(state: AppState, action: AppStateReducerAction): AppSta
         if (todocard.id === action.id) {
           const newTodoCard: TodoCards = {
             category: todocard.category,
+            userId: todocard.userId,
             id: todocard.id,
             title: todocard.title,
             saved: action.save,
@@ -147,6 +152,7 @@ function appStateReducer(state: AppState, action: AppStateReducerAction): AppSta
         if (todocard.id === action.id) {
           const newTodoCard: TodoCards = {
             category: todocard.category,
+            userId: todocard.userId,
             id: todocard.id,
             title: todocard.title,
             saved: todocard.saved,
