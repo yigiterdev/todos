@@ -1,0 +1,18 @@
+.todocard {
+  width: 288px;
+  height: 384px;
+
+  padding: 0 20px;
+
+  border: 2px solid var(--default-border-color);
+  border-radius: 12px;
+
+  .input {
+    height: fit-content;
+
+    margin-right: 8px;
+    padding: 10px;
+
+    border-radius: 4px;
+  }
+}

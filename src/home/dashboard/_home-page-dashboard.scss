@@ -1,7 +1,15 @@
 @import "../../core/ui/style/media-queries";
 
 .home-page-dashboard__content {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, 288px);
+
   padding: 20px;
+}
+
+.home-page-dashboard__content__items {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
 }
 
 @include for-small-screens {
