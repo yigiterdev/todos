@@ -1,3 +1,11 @@
+@import "../../core/ui/style/media-queries";
+
 .home-page-dashboard__content {
   padding: 20px;
+}
+
+@include for-small-screens {
+  .home-page-dashboard__content {
+    margin: 0 auto;
+  }
 }

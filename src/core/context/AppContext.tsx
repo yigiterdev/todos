@@ -10,6 +10,8 @@ import React, {
 import {initialAppState} from "./appState";
 import {appStateReducer, AppStateReducerAction} from "./appStateReducer";
 import webStorage from "../storage/webStorage";
+import {supabase} from "../../supabaseClient";
+import {TodoCard, Todos} from "./types";
 
 const AppContext = createContext({
   appState: initialAppState,
@@ -21,6 +23,39 @@ function AppContextProvider({children}: {children: React.ReactNode}) {
     appStateReducer,
     initialAppState
   );
+
+  useEffect(() => {
+    (async () => {
+      const userTodoCards: TodoCard[] = [];
+
+      try {
+        const {data, error} = await supabase
+          .from("todocard")
+          .select()
+          .eq("user_id", appState.user?.id);
+
+        if (error) throw error;
+
+        data?.map((todocard) =>
+          userTodoCards.push({
+            id: todocard.id,
+            userId: todocard.user_id,
+            category: todocard.category,
+            title: todocard.title,
+            saved: todocard.is_saved,
+            todos: todocard.todos as Todos[]
+          })
+        );
+
+        dispatchAppStateReducerAction({
+          type: "SET_TODO_CARDS",
+          todoCards: userTodoCards
+        });
+      } catch (error) {
+        console.log(error);
+      }
+    })();
+  }, [appState.user]);
 
   useEffect(() => {
     webStorage.local.setItem("user", appState.user);

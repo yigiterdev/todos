@@ -5,13 +5,13 @@ export const THEMES = {
 
 export type AppTheme = ValueOf<typeof THEMES>;
 
-export interface TodoCards {
+export interface TodoCard {
   id: string;
   userId: string;
   category: string;
   title: string;
   saved: boolean;
-  todos: Todos[] | null;
+  todos: Todos[];
 }
 
 export interface Todos {

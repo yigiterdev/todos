@@ -1,10 +1,10 @@
 import webStorage from "../storage/webStorage";
-import {AppTheme, THEMES, TodoCards, User} from "./types";
+import {AppTheme, THEMES, TodoCard, User} from "./types";
 
 const initialAppState = {
   theme: getInitialTheme(),
   user: getInitialUser(),
-  todoCards: [] as TodoCards[]
+  todoCards: [] as TodoCard[]
 };
 
 function getInitialTheme() {
