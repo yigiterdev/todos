@@ -1,19 +1,32 @@
 @import "../../core/ui/style/media-queries";
 
 .home-page-dashboard__content {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, 288px);
-
   padding: 20px;
 }
 
 .home-page-dashboard__content__items {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(288px, 1fr));
+  gap: 30px;
+
+  padding: 10px;
+}
+
+.home-page-dashboard__content__item {
+  margin: 0 20px;
 }
 
 @include for-small-screens {
   .home-page-dashboard__content {
+    margin: 0 auto;
+  }
+
+  .home-page-dashboard__content__items {
+    justify-content: center;
+    grid-template-columns: 1fr;
+  }
+
+  .home-page-dashboard__content__item {
     margin: 0 auto;
   }
 }

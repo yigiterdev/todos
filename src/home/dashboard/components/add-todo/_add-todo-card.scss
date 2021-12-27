@@ -1,11 +1,17 @@
-.add-todo-card {
-  width: 288px;
-  height: 384px;
+@import "../../../../core/ui/style/media-queries";
 
-  padding: 0 20px;
+.add-todo-card {
+  width: 100%;
+
+  margin-bottom: 24px;
+  padding: 16px 24px;
 
   border: 2px solid var(--default-border-color);
   border-radius: 12px;
+
+  .input-container {
+    width: unset;
+  }
 
   .input {
     height: fit-content;
@@ -17,6 +23,25 @@
   }
 }
 
-.add-todo-card__title {
-  margin-bottom: 8px;
+.add-todo-card__form {
+  display: grid;
+  grid-template-columns: auto 55px;
+
+  width: 70%;
+}
+
+@include for-small-screens {
+  .add-todo-card {
+    display: block;
+  }
+
+  .add-todo-card__title {
+    margin-bottom: 10px;
+  }
+
+  .add-todo-card__form {
+    align-items: center;
+
+    width: 100%;
+  }
 }

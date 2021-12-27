@@ -1,3 +1,5 @@
+@import "../../../../core/ui/style/media-queries";
+
 .todocard {
   width: 288px;
   height: 384px;
@@ -14,5 +16,11 @@
     padding: 10px;
 
     border-radius: 4px;
+  }
+}
+
+@include for-small-screens {
+  .todocard {
+    width: 100%;
   }
 }

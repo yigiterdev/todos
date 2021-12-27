@@ -18,24 +18,22 @@ function AddTodoCard() {
 
   return (
     <div className={"is-centered has-space-between add-todo-card"}>
-      <div>
-        <h1 className={"typography--h4 is-centered add-todo-card__title"}>
-          {"Add new card"}
-        </h1>
+      <h1 className={"typography--h4 is-centered add-todo-card__title"}>
+        {"Add new card"}
+      </h1>
 
-        <div className={"is-centered"}>
-          <Input
-            name={"category"}
-            type={"text"}
-            value={category}
-            onChange={handleInputChange}
-            placeholder={"Category"}
-          />
+      <div className={"add-todo-card__form"}>
+        <Input
+          name={"category"}
+          type={"text"}
+          value={category}
+          onChange={handleInputChange}
+          placeholder={"Category"}
+        />
 
-          <Button onClick={handleOnClick}>
-            <FaPlus />
-          </Button>
-        </div>
+        <Button onClick={handleOnClick}>
+          <FaPlus />
+        </Button>
       </div>
     </div>
   );
