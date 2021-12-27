@@ -15,7 +15,7 @@ export interface TodoCard {
 }
 
 export interface Todos {
-  todoId: string;
+  id: string;
   name: string;
   completed: boolean;
 }

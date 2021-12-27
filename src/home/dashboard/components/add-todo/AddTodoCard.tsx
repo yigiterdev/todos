@@ -15,6 +15,7 @@ function AddTodoCard() {
     dispatchAppStateReducerAction
   } = useAppContext();
   const [category, setCategory] = useState("");
+  const [title, setTitle] = useState("");
 
   return (
     <div className={"is-centered has-space-between add-todo-card"}>
@@ -23,6 +24,14 @@ function AddTodoCard() {
       </h1>
 
       <div className={"add-todo-card__form"}>
+        <Input
+          name={"title"}
+          type={"text"}
+          value={title}
+          onChange={handleInputChange}
+          placeholder={"Title"}
+        />
+
         <Input
           name={"category"}
           type={"text"}
@@ -43,7 +52,7 @@ function AddTodoCard() {
       const {error} = await supabase.from("todocard").insert({
         category,
         user_id: user?.id,
-        title: "New Todo",
+        title,
         is_saved: false,
         todos: []
       });
@@ -89,8 +98,12 @@ function AddTodoCard() {
     }
   }
 
-  function handleInputChange(event: React.SyntheticEvent<HTMLInputElement>) {
-    setCategory(event.currentTarget.value);
+  function handleInputChange({currentTarget}: React.SyntheticEvent<HTMLInputElement>) {
+    if (currentTarget.name === "title") {
+      setTitle(currentTarget.value);
+    } else if (currentTarget.name === "category") {
+      setCategory(currentTarget.value);
+    }
   }
 }
 
