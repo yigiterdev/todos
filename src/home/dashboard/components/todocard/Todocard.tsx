@@ -14,9 +14,10 @@ import useGetUsersTodoCards from "../../../../core/context/useGetUsersTodoCards"
 
 interface TodocardProps {
   todocardData: TodoCard;
+  onDelete: VoidFunction;
 }
 
-function Todocard({todocardData}: TodocardProps) {
+function Todocard({todocardData, onDelete}: TodocardProps) {
   const {appState, dispatchAppStateReducerAction} = useAppContext();
   const {refetchGetUsersTodoCard} = useGetUsersTodoCards(
     appState,
@@ -29,7 +30,11 @@ function Todocard({todocardData}: TodocardProps) {
 
   return (
     <div className={"todocard"}>
-      <h1 className={"typography--h4 todocard__title"}>{todocardData.title}</h1>
+      <h1 className={"typography--h4 todocard__title"}>
+        {todocardData.title}
+
+        <FaTrash className={"todocard__title__delete-icon"} onClick={onDelete} />
+      </h1>
 
       <div className={"todocard__add-todo-form"}>
         <Input

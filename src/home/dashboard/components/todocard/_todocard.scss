@@ -22,7 +22,22 @@
 }
 
 .todocard__title {
+  display: grid;
+  align-items: center;
+  grid-template-columns: auto 24px;
+
   margin-bottom: 8px;
+}
+
+.todocard__title__delete-icon {
+  width: 24px;
+  height: 24px;
+
+  cursor: pointer;
+
+  &:hover {
+    color: var(--button-primary-bg);
+  }
 }
 
 .todocard__add-todo-form {
