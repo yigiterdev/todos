@@ -43,7 +43,8 @@ function AppContextProvider({children}: {children: React.ReactNode}) {
             category: todocard.category,
             title: todocard.title,
             saved: todocard.is_saved,
-            todos: todocard.todos as Todos[]
+            todos: todocard.todos as Todos[],
+            created_at: todocard.created_at
           })
         );
 

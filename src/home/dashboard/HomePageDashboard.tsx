@@ -14,13 +14,19 @@ function HomePageDashboard({customClassName}: HomePageDashboardProps) {
   const {
     appState: {todoCards}
   } = useAppContext();
+  const sortedTodoCards = todoCards.sort((a, b) => {
+    return new Date(b.created_at).getTime() - new Date(a.created_at).getTime();
+  });
 
   return (
     <div className={customClassName}>
       <div className={"home-page-dashboard__content"}>
         <AddTodoCard />
 
-        <List items={todoCards} customClassName={"home-page-dashboard__content__items"}>
+        <List
+          items={sortedTodoCards}
+          customClassName={"home-page-dashboard__content__items"}
+        >
           {(item) => (
             <ListItem customClassName={"home-page-dashboard__content__item"}>
               <Todocard todocardData={item} />

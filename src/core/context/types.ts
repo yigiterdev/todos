@@ -12,12 +12,14 @@ export interface TodoCard {
   title: string;
   saved: boolean;
   todos: Todos[];
+  created_at: string;
 }
 
 export interface Todos {
   id: string;
   name: string;
   completed: boolean;
+  createdAt: string;
 }
 
 export interface User {
