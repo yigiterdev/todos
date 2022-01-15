@@ -10,17 +10,22 @@ import {TodoCard, Todos} from "../../../../core/context/types";
 import Button from "../../../../core/component/button/Button";
 import {supabase} from "../../../../supabaseClient";
 import {useAppContext} from "../../../../core/context/AppContext";
+import useGetUsersTodoCards from "../../../../core/context/useGetUsersTodoCards";
 
 interface TodocardProps {
   todocardData: TodoCard;
 }
 
 function Todocard({todocardData}: TodocardProps) {
-  const {
-    appState: {user},
+  const {appState, dispatchAppStateReducerAction} = useAppContext();
+  const {refetchGetUsersTodoCard} = useGetUsersTodoCards(
+    appState,
     dispatchAppStateReducerAction
-  } = useAppContext();
+  );
   const [todoTitle, setTodoTitle] = useState("");
+  const sortedTodos = todocardData.todos.sort((a, b) => {
+    return new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime();
+  });
 
   return (
     <div className={"todocard"}>
@@ -40,7 +45,7 @@ function Todocard({todocardData}: TodocardProps) {
         </Button>
       </div>
 
-      <List items={todocardData.todos} customClassName={"todocard__todos"}>
+      <List items={sortedTodos} customClassName={"todocard__todos"}>
         {(item) => (
           <ListItem
             customClassName={classNames("todocard__todos__item", {
@@ -96,7 +101,8 @@ function Todocard({todocardData}: TodocardProps) {
             {
               id: uuidv4(),
               name: todoTitle,
-              completed: false
+              completed: false,
+              createdAt: String(new Date())
             }
           ]
         })
@@ -105,39 +111,8 @@ function Todocard({todocardData}: TodocardProps) {
       if (error) {
         throw error;
       } else {
-        getUsersTodocards();
+        refetchGetUsersTodoCard();
       }
-    } catch (error) {
-      console.log(error);
-    }
-  }
-
-  async function getUsersTodocards() {
-    const userTodoCards: TodoCard[] = [];
-
-    try {
-      const {data, error} = await supabase
-        .from("todocard")
-        .select()
-        .eq("user_id", user?.id);
-
-      if (error) throw error;
-
-      data?.map((todocard) =>
-        userTodoCards.push({
-          id: todocard.id,
-          userId: todocard.user_id,
-          category: todocard.category,
-          title: todocard.title,
-          saved: todocard.is_saved,
-          todos: todocard.todos as Todos[]
-        })
-      );
-
-      dispatchAppStateReducerAction({
-        type: "SET_TODO_CARDS",
-        todoCards: userTodoCards
-      });
     } catch (error) {
       console.log(error);
     }
@@ -145,19 +120,19 @@ function Todocard({todocardData}: TodocardProps) {
 
   async function handleDeleteTodo(todoId: string) {
     try {
-      const newTodos = todocardData.todos.filter((todo) => todo.id !== todoId);
+      const updatedTodos = todocardData.todos.filter((todo) => todo.id !== todoId);
 
       const {error} = await supabase
         .from("todocard")
         .update({
-          todos: newTodos
+          todos: updatedTodos
         })
         .eq("id", todocardData.id);
 
       if (error) {
         throw error;
       } else {
-        getUsersTodocards();
+        refetchGetUsersTodoCard();
       }
     } catch (error) {
       console.log(error);
@@ -166,28 +141,29 @@ function Todocard({todocardData}: TodocardProps) {
 
   async function handleCompleteTodo(todos: Todos) {
     try {
-      let updatedTodo = todocardData.todos.find((todo) => todo.id === todos.id);
-      const sameTodos = todocardData.todos.filter((todo) => todo.id !== todos.id);
+      const updatedTodoIndex = todocardData.todos.findIndex(
+        (todo) => todo.id === todos.id
+      );
+      const updatedTodos = todocardData.todos;
 
-      updatedTodo = {
+      updatedTodos[updatedTodoIndex] = {
         id: todos.id,
         name: todos.name,
-        completed: !todos.completed
+        completed: !todos.completed,
+        createdAt: todos.createdAt
       };
-
-      sameTodos.push(updatedTodo);
 
       const {error} = await supabase
         .from("todocard")
         .update({
-          todos: sameTodos
+          todos: updatedTodos
         })
         .eq("id", todocardData.id);
 
       if (error) {
         throw error;
       } else {
-        getUsersTodocards();
+        refetchGetUsersTodoCard();
       }
     } catch (error) {
       console.log(error);

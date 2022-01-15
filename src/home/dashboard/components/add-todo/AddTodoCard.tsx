@@ -7,13 +7,14 @@ import {FaPlus} from "react-icons/fa";
 import Button from "../../../../core/component/button/Button";
 import {useAppContext} from "../../../../core/context/AppContext";
 import {supabase} from "../../../../supabaseClient";
-import {TodoCard, Todos} from "../../../../core/context/types";
+import useGetUsersTodoCards from "../../../../core/context/useGetUsersTodoCards";
 
 function AddTodoCard() {
-  const {
-    appState: {user},
+  const {appState, dispatchAppStateReducerAction} = useAppContext();
+  const {refetchGetUsersTodoCard} = useGetUsersTodoCards(
+    appState,
     dispatchAppStateReducerAction
-  } = useAppContext();
+  );
   const [category, setCategory] = useState("");
   const [title, setTitle] = useState("");
 
@@ -51,7 +52,7 @@ function AddTodoCard() {
     try {
       const {error} = await supabase.from("todocard").insert({
         category,
-        user_id: user?.id,
+        user_id: appState.user?.id,
         title,
         is_saved: false,
         todos: []
@@ -60,39 +61,8 @@ function AddTodoCard() {
       if (error) {
         throw error;
       } else {
-        getUsersTodocards();
+        refetchGetUsersTodoCard();
       }
-    } catch (error) {
-      console.log(error);
-    }
-  }
-
-  async function getUsersTodocards() {
-    const userTodoCards: TodoCard[] = [];
-
-    try {
-      const {data, error} = await supabase
-        .from("todocard")
-        .select()
-        .eq("user_id", user?.id);
-
-      if (error) throw error;
-
-      data?.map((todocard) =>
-        userTodoCards.push({
-          id: todocard.id,
-          userId: todocard.user_id,
-          category: todocard.category,
-          title: todocard.title,
-          saved: todocard.is_saved,
-          todos: todocard.todos as Todos[]
-        })
-      );
-
-      dispatchAppStateReducerAction({
-        type: "SET_TODO_CARDS",
-        todoCards: userTodoCards
-      });
     } catch (error) {
       console.log(error);
     }
