@@ -60,6 +60,8 @@
 
 .todocard__todos__item--completed {
   .todocard__todos__item__title {
+    color: darkgreen;
+
     text-decoration: line-through;
   }
 }
@@ -70,6 +72,17 @@
   &:hover {
     color: var(--button-primary-bg);
   }
+}
+
+.todocard__todos__item__icon--tick {
+  width: 24px;
+  height: 24px;
+
+  cursor: pointer;
+}
+
+.todocard__todos__item__icon--completed {
+  color: darkgreen;
 }
 
 @include for-small-screens {

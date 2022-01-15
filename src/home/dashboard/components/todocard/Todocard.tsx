@@ -4,7 +4,8 @@ import {useState} from "react";
 import classNames from "classnames";
 import {Input, List, ListItem} from "@hipo/react-ui-toolkit";
 import {v4 as uuidv4} from "uuid";
-import {FaPlus, FaTrash, FaRegThumbsUp, FaRegThumbsDown} from "react-icons/fa";
+import {FaPlus, FaTrash} from "react-icons/fa";
+import {TiTick} from "react-icons/ti";
 
 import {TodoCard, Todos} from "../../../../core/context/types";
 import Button from "../../../../core/component/button/Button";
@@ -61,23 +62,15 @@ function Todocard({todocardData, onDelete}: TodocardProps) {
               {item.name}
             </h3>
 
-            {item.completed ? (
-              <FaRegThumbsDown
-                className={"todocard__todos__item__icon"}
-                // eslint-disable-next-line
-                onClick={() => {
-                  handleCompleteTodo(item);
-                }}
-              />
-            ) : (
-              <FaRegThumbsUp
-                className={"todocard__todos__item__icon"}
-                // eslint-disable-next-line
-                onClick={() => {
-                  handleCompleteTodo(item);
-                }}
-              />
-            )}
+            <TiTick
+              className={classNames("todocard__todos__item__icon--tick", {
+                "todocard__todos__item__icon--completed": item.completed
+              })}
+              // eslint-disable-next-line
+              onClick={() => {
+                handleCompleteTodo(item);
+              }}
+            />
 
             <FaTrash
               className={"todocard__todos__item__icon"}
